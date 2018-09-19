@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>sample webapp</title>
+  </head>
+  <body>
+    <h2>This is population search service!</h2>
+    Please input country name.(e.g. Japan, America, ...)<br>
+    <form method="POST" action="search">
+      Country Name: <input type="text" name="country"><br/>
+      <input type="submit" value="search">
+    </form>
+    <div>
+      country: <%= @country %><br/>
+      <% if @population then %>
+        <% if @population == 0 then %>
+          no data of the country<br/>
+        <% else %>
+          population(thousands): <%= @population %><br/>
+        <% end %>
+      <% end %>
+    </div>
+  </body>
+</html>
