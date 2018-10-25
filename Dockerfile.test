@@ -1,0 +1,13 @@
+FROM ruby:2.5.1-alpine3.7
+
+RUN mkdir -p /myapp
+WORKDIR /myapp
+COPY Gemfile Gemfile
+RUN bundle install
+
+COPY population.csv population.csv
+COPY server.rb server.rb
+COPY views views
+COPY tests tests
+
+CMD ruby tests/test-server.rb
